@@ -4,6 +4,8 @@ on:
     tags:
       - '*'
 name: "Build & Release"
+permissions:
+  contents: write
 jobs:
   build:
     name: Build & Release
