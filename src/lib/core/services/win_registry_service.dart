@@ -67,36 +67,7 @@ abstract class const WinRegistryService._private() {
   ).existsSync();
 
   static bool get isSupported {
-    return _validate() ||
-        readString(
-              LOCAL_MACHINE,
-              r'SOFTWARE\Microsoft\Windows NT\CurrentVersion',
-              'EditionSubVersion',
-            ) ==
-            'ReviOS' ||
-        readString(
-              LOCAL_MACHINE,
-              r'SOFTWARE\Microsoft\Windows NT\CurrentVersion',
-              'EditionSubManufacturer',
-            ) ==
-            'MeetRevision';
-  }
-
-  static bool _validate() {
-    final RegistryKey key = LOCAL_MACHINE.open(
-      r'SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages',
-    );
-
-    try {
-      return key.keys.lastWhere((element) => element.startsWith('Revision-ReviOS')).isNotEmpty;
-    } catch (e) {
-      if (!isAmePlaybook) {
-        logger.w('Error validating ReviOS');
-      }
-      return false;
-    } finally {
-      key.close();
-    }
+    return true;
   }
 
   static Future<void> hidePageVisibilitySettings(String pageNames) async {

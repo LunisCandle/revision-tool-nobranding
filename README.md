@@ -14,6 +14,8 @@
 
 </div>
 
+# This fork only removes the detection for systems with ReviOS installed, for use with my fork of the playbook [here.](https://github.com/LunisCandle/revision-nobranding)
+
 <br>
 
 A tool to personalize [ReviOS](https://www.revi.cc/) to your needs. Rewritten in Dart with Fluent UI.
